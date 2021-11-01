@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<h1>Blog</h1>
+
+
+
+<div class="album py-5 bg-light">
+
+    <div class="container">
+        <div class="row">
+
+
+        {% for article in article_list%}
+
+        <div class="col-12 col-sm-6 col-lg-4">
+            <div class="card mb-4 shadow-lg">
+
+                <div class="card-title">
+                    <a href="{% url 'article_view' article.slug %}"><img class="card-img-top" title="{{ article.title }}" alt="{{ article.cover_image_alt }}" src="{{ article.cover_image.url }}"/>
+                    <h3 class="card-text py-3">{{ article.title }}</h3></a>  
+                </div>
+
+                <div class="card-body">
+                
+                    <p class="card-text">{{ article.cover_image_alt | slice:":400" | safe }}....</p>
+                    <div class="card-title py-3">
+                        <h5>Tags</h5>
+
+                        {% for category in article.categories.all %}
+                        <p class="card-text">
+                            <a href="{% url 'article_category' category|slugify %}">
+                            {{ category.name }}
+                            </a>
+                        </p>
+                        {% endfor %}
+
+
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        
+                        <div class="btn-group">
+
+                            <a href="{% url 'article_view' article.slug %}">          
+                                <button href="{% url 'article_view' article.slug %}" type="button" class="btn btn-sm btn-warning">View</button>
+                            </a>
+                        
+                        </div>
+                        <small class="text-muted"> {{ article.pub_date }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+{% endfor %}
+
+
+
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}
