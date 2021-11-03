@@ -17,7 +17,8 @@ def signup(request):
         signup_form = SignUpForm(request.POST)
         if signup_form.is_valid():
             # Signup Function in services
-            
+            # If email authentication is being used then this part of the code would return
+            # a message to the user to authenticate their email. Instead of welcome. 
             signup_new_user(request, signup_form)
 
             toast_message = "Welcome! Lets start a discussion."
