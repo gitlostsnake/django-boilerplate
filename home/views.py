@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import *
 from accounts.forms import SignUpForm, LoginForm
+from .services import contact_us_message_save
 
 # Create your views here.
 def home(request, toast_message={}, banner_title={} ,banner_message={} ):
@@ -18,6 +19,9 @@ def home(request, toast_message={}, banner_title={} ,banner_message={} ):
                 message = contact_form.cleaned_data['message']
                 print('Message is recieved by function in home.views.py')
                 # Try send contact message
+                contact_us_message_create(name, email, subject, message)
+                
+
                 banner_title = f"Thanks for the message!"
                 banner_message = 'You will be hearing from me soon'
                 
