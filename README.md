@@ -7,7 +7,7 @@ The goal for my boilerplate is to eliminate the need to re-write the basic funct
 
 ## Table of Contents
 * [Set up](#set-up)
-* [Services.py and Selectors.py](#services.py-selectors.py)
+* [Services.py and Selectors.py](#services.py-and-selectors.py)
 * [Features](#features)
     1. [User accounts](#user-accounts)
     2. [Blog](#blog)
