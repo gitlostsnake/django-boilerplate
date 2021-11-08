@@ -7,7 +7,7 @@ The goal for my boilerplate is to eliminate the need to re-write the basic funct
 
 ## Table of Contents
 * [Set up](#set-up)
-* [Services.py and Selectors.py](#services.py-and-selectors.py)
+* [Services and Selectors](#services-and-selectors)
 * [Features](#features)
     1. [User accounts](#user-accounts)
     2. [Blog](#blog)
@@ -25,7 +25,7 @@ The goal for my boilerplate is to eliminate the need to re-write the basic funct
 
 > More info on pipenv [_Here_](https://realpython.com/pipenv-guide/)
 
-### Services.py and Selectors.py
+### Services and Selectors
 I have added in two files into most app directories. Services for all Business logic and Selectors for my filters and database queries. This is to keep my views.py file looking cleaner and making it easier to read. Instead of seing a load of queries and model instance saves in a view file. You will see things like `signup_new_user(signup_form)` or `authenticate_new_user(request, user_id, template_id)` (template id is used in the Send In Blue api for email authentication) and `activate_new_user(request, uid64, token)` in the views instead. For basic filters and model changes it might seem like over kill but further into development if I'm working on a complicated feature. It's really helped the readability of my views.py file and kept my mind a little less cluttered keeping track of a huge view function. 
 
 ### Features
