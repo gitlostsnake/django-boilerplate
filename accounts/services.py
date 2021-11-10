@@ -23,7 +23,7 @@ def signup_new_user(request, signup_form):
         user.is_active = False
         user.save()
         update_profile(user.id, False)
-        authenticate_new_user(request)
+        authenticate_new_user(request, user.id)
 
 
     else:
@@ -44,7 +44,7 @@ def update_profile(user_id, email_authenticated):
 
     
 
-def authenticate_new_user(request, user_id, template_id):
+def authenticate_new_user(request, user_id):
     """ Pass in the request, user and the send in blue template ID into this function to authenticate the user. """
     # If you are using SendinBlue and have EMAIL_API_KEY in your settings file this function will be triggered on signup.
 

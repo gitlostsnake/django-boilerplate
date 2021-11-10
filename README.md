@@ -38,7 +38,8 @@ For emailing Go to the sendinblue website and continue the steps
         
     2. In `def activate_new_user()` you will change the the list ids to match with yours in the `payload` variable.
         > `payload = f'{{"email":"{email}", "listIds": [{YOUR LIST ID1}, {YOUR LIST ID2}]}}'`
-     
+    
+    3. In `def signup_new_user()` remove the EMAIL_SETUP=False and the `if EMAIL_SETUP:` but leave the block of code and remove the entire `else:` block. The if block is what will be used to signup a new user.  
 
 
 ### Technologies Used
