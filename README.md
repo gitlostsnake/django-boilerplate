@@ -118,3 +118,4 @@ For emailing Go to the sendinblue website and continue the steps
 ### Room for Improvement
 * Password reset email is not implemented yet
 * Including a front end framework like react
+* Add in a checkout and payment method using stripes Api
