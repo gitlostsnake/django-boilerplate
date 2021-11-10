@@ -29,8 +29,16 @@ For emailing Go to the sendinblue website and continue the steps
 > Send in blue's docs reference [_here_](https://developers.sendinblue.com/docs)
   
 1. Get access to your api key.
-2. Create a emailing template for signing up to the website
-3. Create a list where you will keep all your users in
+2. Create a local_settings.py file add your private email api key in there and git ignore it. Make sure its called `EMAIL_API_KEY=<YOUR API KEY>`
+3. In your settings.py file add these variables 
+    `EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'`
+    `EMAIL_HOST = 'smtp-relay.sendinblue.com'`
+    `EMAIL_PORT = 587`
+    `EMAIL_USE_TLS = True`
+    `EMAIL_HOST_USER = 'YourEMAILName@SOMEWHERE.co.uk'`
+    `DEFAULT_FROM_EMAIL = 'YourEMAILName@SOMEWHERE.co.uk'`
+4. Create a emailing template for signing up to the website
+5. Create a list where you will keep all your users in
 
 *  Go to the accounts/services.py file       
     1. In `def authenticate_new_user()` you will find the `send_smtp_email` variable. Change the template_id to your template id. 
@@ -40,6 +48,8 @@ For emailing Go to the sendinblue website and continue the steps
         > `payload = f'{{"email":"{email}", "listIds": [{YOUR LIST ID1}, {YOUR LIST ID2}]}}'`
     
     3. In `def signup_new_user()` remove the EMAIL_SETUP=False and the `if EMAIL_SETUP:` but leave the block of code and remove the entire `else:` block. The if block is what will be used to signup a new user.  
+
+
 
 
 ### Technologies Used
