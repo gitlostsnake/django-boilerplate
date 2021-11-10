@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .forms import *
 from accounts.forms import SignUpForm, LoginForm
-from .services import contact_us_message_save
+from .services import contact_us_message_create
 
 # Create your views here.
 def home(request, toast_message={}, banner_title={} ,banner_message={} ):

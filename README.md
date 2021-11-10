@@ -22,27 +22,30 @@ The goal for my boilerplate is to eliminate the need to re-write the basic funct
   2. Install pipenv by running `pip install pipenv` in the terminal
   3. Create a virtual enviroment by running `pipenv shell` in the terminal
   4. Install all dependencies by running `pipenv install --dev`
-  > More info on pipenv [_here_](https://realpython.com/pipenv-guide/)
-  * Optional
+     > More info on pipenv [_here_](https://realpython.com/pipenv-guide/)
+  
+### Optional
+For emailing Go to the sendinblue website and continue the steps
+> Send in blue's docs reference [_here_](https://developers.sendinblue.com/docs)
+  
+1. Get access to your api key.
+2. Create a emailing template for signing up to the website
+3. Create a list where you will keep all your users in
 
-  * For emailing Go to the sendinblue website and continue the steps
-    > Send in blue's docs [_here_](https://developers.sendinblue.com/docs)
-  
-    1. Get access to your api key.
-    2. Create a emailing template for signing up to the website
-    3. Create a list where you will keep all your users in
-  
-    *  Go to the accounts/services.py file
+*  Go to the accounts/services.py file       
+    1. In `def authenticate_new_user()` you will find the `send_smtp_email` variable. Change the template_id to your template id. 
+        > `sib_api_v3_sdk.SendSmtpEmail(to=[params], template_id= YOUR TEMPLATE ID)`
         
-        1. In `def authenticate_new_user()` you will find the `send_smtp_email` variable. Change the template_id to your template id. 
-            > `sib_api_v3_sdk.SendSmtpEmail(to=[params], template_id= YOUR TEMPLATE ID)`
-        
-        2. In `def activate_new_user()` you will change the the list ids to match with yours in the `payload` variable.
-            > `payload = f'{{"email":"{email}", "listIds": [{YOUR LIST ID1}, {YOUR LIST ID2}]}}'`
+    2. In `def activate_new_user()` you will change the the list ids to match with yours in the `payload` variable.
+        > `payload = f'{{"email":"{email}", "listIds": [{YOUR LIST ID1}, {YOUR LIST ID2}]}}'`
      
 
 
 ### Technologies Used
+1. Bootstrap
+2. Bootstrap crispy forms 
+3. Pytz
+4. Send in blue Emailing API
 
 
 ### Features
@@ -113,5 +116,5 @@ The goal for my boilerplate is to eliminate the need to re-write the basic funct
 
 
 ### Room for Improvement
-* Password reset email is not 
-* 
+* Password reset email is not implemented yet
+* Including a front end framework like react

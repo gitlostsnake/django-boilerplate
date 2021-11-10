@@ -10,6 +10,6 @@ class ContactUsMessage(models.Model):
     replied = models.BooleanField(default=False)
 
     def __str__(self):
-        string = f"Message from {self.email} at {self.time_sent}"
+        string = f"Replied: <{self.replied}> From: <{self.email}> Time: <{self.time_sent}>"
         return string
  

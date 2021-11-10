@@ -7,7 +7,7 @@ from .decorators import unauthenticated_user
 from .forms import *
 from home.forms import ContactUsForm
 from home.views import home
-from .services import signup_new_user
+from .services import *
 
 
 def signup(request):
@@ -20,7 +20,7 @@ def signup(request):
             # If email authentication is being used then this part of the code would return
             # a message to the user to authenticate their email. Instead of welcome. 
             signup_new_user(request, signup_form)
-
+            
             toast_message = "Welcome! Lets start a discussion."
             banner_title = f"Thanks {signup_form.cleaned_data['username']}"
             banner_message = f"Your signed up!"
@@ -72,7 +72,7 @@ def login(request):
             }
             return render(request, 'login.html', context)
     else:
-        toast_message = "Login Forms :D"
+        toast_message = "Login"
         context = {
             'toast_message' : toast_message,
             'contact_form': contact_form,
@@ -101,5 +101,7 @@ def contact_us(request):
             print('Message is recieved by function in accounts.views.py')        
     return home(request)
 
-def activate_account(request):
-    pass
+
+def activate_account(request, uidb64, token):
+    activate_new_user(request, uidb64, token)
+    return redirect('home')
