@@ -31,12 +31,13 @@ For emailing Go to the sendinblue website and continue the steps
 1. Get access to your api key.
 2. Create a local_settings.py file add your private email api key in there and git ignore it. Make sure its called `EMAIL_API_KEY=<YOUR API KEY>`
 3. In your settings.py file add these variables 
-    `EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'`
-    `EMAIL_HOST = 'smtp-relay.sendinblue.com'`
-    `EMAIL_PORT = 587`
-    `EMAIL_USE_TLS = True`
-    `EMAIL_HOST_USER = 'YourEMAILName@SOMEWHERE.co.uk'`
-    `DEFAULT_FROM_EMAIL = 'YourEMAILName@SOMEWHERE.co.uk'`
+   1. `EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'`
+   2. `EMAIL_HOST = 'smtp-relay.sendinblue.com'`
+   3. `EMAIL_PORT = 587`
+   4. `EMAIL_USE_TLS = True`
+   5. `EMAIL_HOST_USER = 'YourEMAILName@SOMEWHERE.co.uk'`
+   6. `DEFAULT_FROM_EMAIL = 'YourEMAILName@SOMEWHERE.co.uk'`
+   
 4. Create a emailing template for signing up to the website
 5. Create a list where you will keep all your users in
 
